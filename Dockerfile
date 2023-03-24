@@ -135,7 +135,7 @@ RUN \
   echo "**** build libdvbcsa ****" && \	
   git clone https://github.com/glenvt18/libdvbcsa.git /tmp/libdvbcsa && \	
   cd /tmp/libdvbcsa && \	
-  git apply /tmp/patches/libdvbcsa.patch && \	
+  git apply /tmp/patches/libdvbcsa.patch && sed 's# == 4)# > 0)#' -i src/dvbcsa_pv.h && \
   ./bootstrap && \	
   ./configure \	
   --prefix=/usr \	
