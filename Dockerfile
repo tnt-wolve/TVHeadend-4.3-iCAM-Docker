@@ -109,8 +109,8 @@ RUN \
 # Download linuxserver/tvheadend git
 RUN \
   echo "**** download linuxserver/docker-tvheadend ****" && \
-  git clone https://github.com/linuxserver/docker-tvheadend.git /tmp/docker-tvheadend \
-  $([ "${TARGETARCH}" == "arm" ] && cd /tmp/docker-tvheadend && git checkout 14a5ab8fc818b056d0b4cc7c49de81f7d7233bcb)
+  git clone https://github.com/linuxserver/docker-tvheadend.git /tmp/docker-tvheadend && \
+  $([ "${TARGETARCH}" == "arm" ] && cd /tmp/docker-tvheadend && git checkout 14a5ab8fc818b056d0b4cc7c49de81f7d7233bcb || echo "")
 
 RUN \
   echo "**** copy patches ****" && \
